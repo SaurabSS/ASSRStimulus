@@ -11,23 +11,22 @@ Ensure you have the following installed on your machine:
 5. OpenBCI_LSL-master
 6. pydub
 
-Starting from a clean Ubuntu 20.04 setup, these are the commands to execute in order:
+If not previously installed, from a clean Ubuntu 20.04 setup, these are the commands to execute in order:
 
 ```
-
 sudo apt-get install python3-pip
 pip install psychopy
 export PATH=/home/ubuntu/.local/bin:$PATH
 ```
 
-(Download the given wheel from [here](https://extras.wxpython.org/wxPython4/extras/linux/gtk3/))
+Download the given wheel from [here](https://extras.wxpython.org/wxPython4/extras/linux/gtk3/)
 ```
 pip install Downloads/wxPython-4.1.1-cp38-cp38-linux_x86_64.whl 
 sudo apt-get install libusb-1.0-0-dev portaudio19-dev libasound2-dev
 pip install psychtoolbox
 ```
 
-(Download Conda from official website and:)
+Download Conda from official [website](https://docs.anaconda.com/anaconda/install/index.html) and:
 ```
 sha256sum Anaconda3-2021.05-Linux-x86_64.sh 
 bash Anaconda3-2021.05-Linux-x86_64.sh 
@@ -50,32 +49,25 @@ psychopy
 conda deactivate
 ```
 
-(Clone OpenBCI_LSL-master form [Github](https://github.com/openbci-archive/OpenBCI_LSL))
+More details on installing PsychoPy on Ubuntu and other platforms can be found [here](https://www.psychopy.org/download.html).
+
+Clone OpenBCI_LSL-master form [Github](https://github.com/openbci-archive/OpenBCI_LSL)
 ```
 cd OpenBCI_LSL-master/
 pip install -r requirements.txt 
-(If you get an error, run the below command and remove numpy and scipt from requirements.txt manually)
 
+(If you get an error, run the command below. After that remove numpy and scipy from requirements.txt manually and rerun the command above)
 python -m pip install --user numpy scipy matplotlib ipython jupyter
 
 ```
-(If not previously done)
+If not previously done, ensure your path is correct:
 ```export PATH=/home/ubuntu/.local/bin:$PATH```
 
-(Now, download and install OpenBCI_GUI standalone [app](https://openbci.com/downloads) and in its directory, run)
+Now, download and install OpenBCI_GUI standalone [app](https://openbci.com/downloads) and in its directory, run
 ```./OpenBCI_GUI ```
 
-(in OpenBCI_LSL-master/ , run)
+Go to OpenBCI_LSL-master/ and run
 ```python openbci_lsl.py --stream```
-
-
-
-
-Clone this repository and open navigate to it on PsychoPy.
-
-```
-Setup an LSL stream using python openbci_lsl.py --stream
-```
 
 If you get any port related errors, specify it manually using:
 
@@ -83,7 +75,10 @@ If you get any port related errors, specify it manually using:
 python openbci_lsl.py [PORT] --stream
 ```
 
-Open ```FinalStimulus.py``` on PsychoPy coder and run it.
+
+Now, clone this repository and open it on PsychoPy coder's file navigation pane.
+
+Open ```FinalStimulus.py``` on PsychoPy coder by double clicking it and run it.
 
 ## Updates incoming:
 
