@@ -26,7 +26,7 @@ sudo apt-get install libusb-1.0-0-dev portaudio19-dev libasound2-dev
 pip install psychtoolbox
 ```
 
-Download Conda from official [website](https://docs.anaconda.com/anaconda/install/index.html) and:
+Download Conda from official [website](https://docs.anaconda.com/anaconda/install/index.html) and run:
 ```
 sha256sum Anaconda3-2021.05-Linux-x86_64.sh 
 bash Anaconda3-2021.05-Linux-x86_64.sh 
@@ -35,12 +35,9 @@ export PATH=/home/ubuntu/anaconda3/bin:$PATH
 cd ASSRExp/
 conda env create -n psychopy -f psychopy-env.yml
 conda activate psychopy
-
-conda init bash
-conda activate psychopy
 sudo apt-get install libwebkitgtk-1.0.0
 ```
-(Might need to exachange the order of above two commands if it does not work on your machine)
+You might need to exachange the order of above two commands if it does not work on your machine.
 
 ```
 pip install pydub
@@ -51,20 +48,24 @@ conda deactivate
 
 More details on installing PsychoPy on Ubuntu and other platforms can be found [here](https://www.psychopy.org/download.html).
 
-Clone OpenBCI_LSL-master form [Github](https://github.com/openbci-archive/OpenBCI_LSL)
+
+Next, download and install OpenBCI_GUI standalone [app](https://openbci.com/downloads) and in its directory, run
+```./OpenBCI_GUI ```
+
+Ensure that your dongle is attached, OpenBCI is turned on and the correct port is selected in the GUI. 
+
+
+Next, clone OpenBCI_LSL-master form [Github](https://github.com/openbci-archive/OpenBCI_LSL)
 ```
 cd OpenBCI_LSL-master/
 pip install -r requirements.txt 
 
-(If you get an error, run the command below. After that remove numpy and scipy from requirements.txt manually and rerun the command above)
+(If you get an error, run the command below. After that, remove numpy and scipy from requirements.txt manually and rerun the command above)
 python -m pip install --user numpy scipy matplotlib ipython jupyter
 
 ```
 If not previously done, ensure your path is correct:
 ```export PATH=/home/ubuntu/.local/bin:$PATH```
-
-Now, download and install OpenBCI_GUI standalone [app](https://openbci.com/downloads) and in its directory, run
-```./OpenBCI_GUI ```
 
 Go to OpenBCI_LSL-master/ and run
 ```python openbci_lsl.py --stream```
@@ -78,7 +79,7 @@ python openbci_lsl.py [PORT] --stream
 
 Now, clone this repository and open it on PsychoPy coder's file navigation pane.
 
-Open ```FinalStimulus.py``` on PsychoPy coder by double clicking it and run it.
+Now, start streaming in the OpenBCI GUI, and run ```FinalStimulus.py``` on PsychoPy coder by double clicking it to open and clicking on the green run button.
 
 ## Updates incoming:
 
