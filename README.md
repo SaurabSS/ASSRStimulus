@@ -50,7 +50,7 @@ psychopy
 conda deactivate
 ```
 
-(Clone OpenBCI_LSL-mater form [Github](https://github.com/openbci-archive/OpenBCI_LSL))
+(Clone OpenBCI_LSL-master form [Github](https://github.com/openbci-archive/OpenBCI_LSL))
 ```
 cd OpenBCI_LSL-master/
 pip install -r requirements.txt 
@@ -62,7 +62,7 @@ python -m pip install --user numpy scipy matplotlib ipython jupyter
 (If not previously done)
 ```export PATH=/home/ubuntu/.local/bin:$PATH```
 
-(Now, download and install OpenBCI_GUI standalone app and in its directory, run)
+(Now, download and install OpenBCI_GUI standalone [app](https://openbci.com/downloads) and in its directory, run)
 ```./OpenBCI_GUI ```
 
 (in OpenBCI_LSL-master/ , run)
@@ -73,12 +73,18 @@ python -m pip install --user numpy scipy matplotlib ipython jupyter
 
 Clone this repository and open navigate to it on PsychoPy.
 
-```Setup an LSL stream using python openbci_lsl.py --stream```
+```
+Setup an LSL stream using python openbci_lsl.py --stream
+```
 
 If you get any port related errors, specify it manually using:
 
-```python openbci_lsl.py [PORT] --stream```
+```
+python openbci_lsl.py [PORT] --stream
+```
 
-Open FinalStimulus.py on PsychoPy coder and run it.
+Open ```FinalStimulus.py``` on PsychoPy coder and run it.
 
-Updates incoming: LSL stream integration and save skipped trials in a CSV.
+## Updates incoming:
+
+Full LSL stream integration and saving skipped trials and their timestamps in a CSV.
