@@ -83,4 +83,4 @@ Now, start streaming in the OpenBCI GUI, and run ```FinalStimulus.py``` on Psych
 
 ## Updates incoming:
 
-Full LSL stream integration and saving skipped trials and their timestamps in a CSV.
+Full LSL stream integration and ~~saving skipped trials~~ and their timestamps in a CSV.
