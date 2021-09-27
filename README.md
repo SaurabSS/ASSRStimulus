@@ -8,7 +8,7 @@ This code launches an ASSR experiment in PsychoPy with a GUI to adjust parameter
 
 The initial GUI menu of this experiment looks as follows:
 
-<img src="GUIMenu.png" alt="GUI Menu" width="200px"/>
+<img src="GUIMenu.png" alt="GUI Menu" width="350px"/>
 
 After adjusting the required parameters, the experiment begins. 
 
