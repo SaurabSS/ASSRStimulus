@@ -8,7 +8,7 @@ from pylsl import StreamInfo, StreamOutlet, local_clock
 
 print('Using %s (with %s) for sounds' % (sound.audioLib, sound.audioDriver))
 
-expInfo = {'Observer':'Lab243', 'Volunteer Name':'Burdell', 'Pure Tone Duration (s)' : 3, 'Dual Tone Duration (s)':5,'Volume (0-100)':25, 'Total Trials':2}
+expInfo = {'Observer':'Lab243', 'Volunteer Name':'Burdell', 'Pure Tone Duration (s)' : 3, 'Dual Tone Duration (s)':5,'Volume (0-100)':25, 'Total Trials': 5}
 
 dlg = gui.DlgFromDict(expInfo, title='ASSR')
 if dlg.OK:

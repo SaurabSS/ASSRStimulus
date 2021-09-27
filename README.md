@@ -1,6 +1,32 @@
 # ASSRStimulus
 
-Steps to run the stimulus and integrate with LSL stream:
+## Description
+
+This code launches an ASSR experiment in PsychoPy with a GUI to adjust parameters like duration and the number of trials. In case volunteers skip certain trials when they lose focus, the code updates these trial numbers in a separate CSV. See the [experiment design](#experiment-design) section for more details on it. The start and end timestamps of each trial are recorded using an LSL stream in another CSV by ```LSLworker.py```.
+
+## Experiment Design
+
+The initial GUI menu of this experiment looks as follows:
+
+<img src="GUIMenu.png" alt="GUI Menu" width="200px"/>
+
+After adjusting the required parameters, the experiment begins. 
+
+Within each trial, the following events happen in order:
+1. Pure tone sound is played as a reference for user to memorize
+2. Waits for user input to proceed to dual tone sound 
+3. Sends LSL Start Marker for the trial
+4. Dual tone sound is played for actual data collection (pure tone + random tone mixed)
+5. Sends LSL End Marker for the trial
+6. Asks the user if they want to skip the previous trial
+7. Waits for 3 seconds
+8. If yes, records it in a CSV (```volname_date_time.csv```)
+8. Continues to next trial
+
+Parallelly, the ```LSLworker.py``` script collects the output stream and parses it to generate another CSV file showing the timestamps and the trial numbers.
+
+## Steps to Run
+Run the stimulus and integrate with LSL stream using the steps below.
 
 Ensure you have the following installed on your machine:
 
@@ -81,6 +107,13 @@ Now, clone this repository and open it on PsychoPy coder's file navigation pane.
 
 Now, start streaming in the OpenBCI GUI, and run ```FinalStimulus.py``` on PsychoPy coder by double clicking it to open and clicking on the green run button.
 
+In another terminal, run:
+
+```
+conda activate psychopy
+python LSLworker.py
+```
+
 ## Updates incoming:
 
-Full LSL stream integration and ~~saving skipped trials~~ and their timestamps in a CSV.
+~~Full LSL stream integration and saving skipped trials and their timestamps in a CSV.~~ [Done]
