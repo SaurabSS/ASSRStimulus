@@ -56,7 +56,8 @@ Download Conda from official [website](https://docs.anaconda.com/anaconda/instal
 ```
 sha256sum Anaconda3-2021.05-Linux-x86_64.sh 
 bash Anaconda3-2021.05-Linux-x86_64.sh 
-export PATH=/home/ubuntu/anaconda3/bin:$PATH
+export PATH=/home/<username>/anaconda3/bin:$PATH
+(Change according to your installation)
 
 cd ASSRExp/
 conda env create -n psychopy -f psychopy-env.yml
