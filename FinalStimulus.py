@@ -4,6 +4,7 @@ from psychopy import visual, data
 import random
 from pydub import AudioSegment
 import csv
+from pylsl import StreamInfo, StreamOutlet, local_clock
 
 print('Using %s (with %s) for sounds' % (sound.audioLib, sound.audioDriver))
 
@@ -20,6 +21,10 @@ fileName = expInfo['Volunteer Name'] + data.getDateStr()
 dataFile = open(fileName+'.csv', 'w')
 writer = csv.writer(dataFile)
 writer.writerow(["Skipped Trials"])
+
+#setting up a new output stream to send trial information
+info = StreamInfo('stimulusStream', 'Markers', 1, 0, 'string', 'streamidd')
+outlet = StreamOutlet(info)
 
 win = visual.Window([1280,700],allowGUI=True,
                     monitor='testMonitor', units='deg')
@@ -80,6 +85,7 @@ for trialNo in range(0,expInfo['Total Trials']):
     win.flip()
     event.waitKeys()
 
+    outlet.push_sample(str(trialNo))
     circle = visual.Circle(win=win, radius=1, pos=[0,0], fillColor=[1.0,1.0,1.0], colorSpace='rgb')
     circle.draw()
     win.flip()
@@ -87,7 +93,7 @@ for trialNo in range(0,expInfo['Total Trials']):
     hello = sound.Sound('combined.wav', stopTime=expInfo['Dual Tone Duration (s)']) 
     hello.play()
     core.wait(expInfo['Dual Tone Duration (s)'])
-
+    outlet.push_sample(str(trialNo))
 
     message = visual.TextStim(win, pos=[0,+3],text='''If you want to skip the last trial, press spacebar in 3 seconds''')
     message.draw()
