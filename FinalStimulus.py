@@ -17,7 +17,7 @@ else:
     core.quit()
 
 #setting up a new output stream to send trial information
-info = StreamInfo('stimulusStream', 'Markers', 1, 0,  'cf_int32', 'streamidd')
+info = StreamInfo('stimulusStream', 'Markers', 1, 0,  'int32', 'streamidd')
 outlet = StreamOutlet(info)
 
 win = visual.Window([1280,700],allowGUI=True,
@@ -80,7 +80,7 @@ for trialNo in range(0,expInfo['Total Trials']):
     win.flip()
     event.waitKeys()
 
-    outlet.push_sample(0)
+    outlet.push_sample([0])
     circle = visual.Circle(win=win, radius=1, pos=[0,0], fillColor=[1.0,1.0,1.0], colorSpace='rgb')
     circle.draw()
     win.flip()
@@ -88,13 +88,13 @@ for trialNo in range(0,expInfo['Total Trials']):
     hello = sound.Sound('combined.wav', stopTime=expInfo['Dual Tone Duration (s)']) 
     hello.play()
     core.wait(expInfo['Dual Tone Duration (s)'])
-    outlet.push_sample(1)
+    outlet.push_sample([1])
 
     message = visual.TextStim(win, pos=[0,+3],text='''If you want to skip the last trial, press spacebar in 3 seconds''')
     message.draw()
     win.flip()
 
     if(event.waitKeys(maxWait=3)):  
-        outlet.push_sample(-1)
+        outlet.push_sample([-1])
         
 core.quit()
